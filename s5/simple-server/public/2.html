@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .done {
+        text-decoration: line-through;
+      }
+    </style>
+    <script>
+      window.onload = () => {
+        const todo = document.getElementById('todo')
+        const addTodo = document.getElementById('addTodo')
+        const todos = document.querySelector('#todos')
+
+        addTodo.onclick = () => {
+          const todoContent = todo.value
+          // todos.innerHTML += `
+          //   <li>
+          //     ${todoContent}
+          //   </li>
+          // `
+          const todoNode = document.createElement('li')
+          todoNode.onclick = () => {
+            todoNode.classList.toggle('done')
+          }
+          const todoTextNode = document.createTextNode(todoContent)
+          todoNode.appendChild(todoTextNode)
+          todos.append(todoNode)
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type=text id=todo>
+    <input type=button id=addTodo value='add a todo'>
+    <ol id=todos></ol>
+  </body>
+</html>

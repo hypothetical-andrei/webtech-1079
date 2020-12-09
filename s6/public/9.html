@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .large{
+        font-size: 2em;
+      }
+    </style>
+    <script>
+      window.onload = () => {
+        const elements = document.querySelectorAll('.special')
+        elements.forEach(e => {
+          e.innerHTML = `
+            <span class="large">
+              ${e.innerHTML.slice(0, 2)}
+            </span>
+              ${e.innerHTML.slice(2, e.innerHTML.length)}
+          `
+        })
+      }
+    </script>
+  </head>
+  <body>
+    <div class=special>some text</div>
+    <div class=special>some other text</div>
+  </body>
+</html>
