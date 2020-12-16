@@ -24,6 +24,10 @@ class MovieDetails extends React.Component {
     this.delete = (id) => {
       this.store.deleteOne(id)
     }
+
+    this.save = (id, crewMember) => {
+      this.store.saveOne(id, crewMember)
+    }
   }
   
   componentDidMount() {
@@ -41,7 +45,7 @@ class MovieDetails extends React.Component {
       <div>
         i will be the details for {this.props.item}
         {
-          this.state.crewMembers.map(e => <CrewMember item={e} key={e.id} onDelete={this.delete} />)
+          this.state.crewMembers.map(e => <CrewMember item={e} key={e.id} onDelete={this.delete} onSave={this.save} />)
         }
         <CrewMemberAddForm onAdd={this.add} />
         <input type='button' value='back' onClick={this.cancel} />
